@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/task")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class TaskController {
 
     private final TaskService ts;
