@@ -10,15 +10,14 @@ import java.time.LocalDateTime;
 @Table(name = "tb_task")
 @Getter
 @Setter
-public class Task {
+public class TaskModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Boolean checked;
     private String hour;
-    private TaskStatus taskStatus;
+    private TaskStatusModel taskStatusModel;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }

@@ -1,6 +1,6 @@
 package com.dias.todolist.model;
 
-public enum TaskStatus {
+public enum TaskStatusModel {
     CREATED,
     EXPIRED,
     CHECKED
