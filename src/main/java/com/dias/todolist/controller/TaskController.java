@@ -3,6 +3,7 @@ package com.dias.todolist.controller;
 import com.dias.todolist.model.TaskModel;
 import com.dias.todolist.service.TaskService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class TaskController {
 
     private final TaskService ts;
 
-    @GetMapping("/all-tasks")
+    @GetMapping()
     public Iterable<TaskModel> getAll() {
         return ts.getAll();
     }
@@ -24,6 +25,16 @@ public class TaskController {
         return ts.getTaskById(id);
     }
 
+    @PostMapping()
+    public ResponseEntity create(@RequestBody TaskModel taskModel) {
+        TaskModel savedTask = ts.createTask(taskModel);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "/api/v1/task/" + savedTask.getId().toString());
+
+        return new ResponseEntity(headers, HttpStatus.CREATED);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteById(@PathVariable("id") Long id) {
         ts.deleteTask(id);
@@ -31,8 +42,4 @@ public class TaskController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/")
-    public String rota() {
-        return "Teste zika";
-    }
 }

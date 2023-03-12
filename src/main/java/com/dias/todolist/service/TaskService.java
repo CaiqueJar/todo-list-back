@@ -8,6 +8,9 @@ public interface TaskService {
     Iterable<TaskModel> getAll();
     TaskModel getTaskById(Long id);
 
+    TaskModel createTask(TaskModel taskModel);
+
+    TaskModel updateTask(Long id, TaskModel taskModel);
 
     void deleteTask(Long id);
 }
