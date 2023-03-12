@@ -17,6 +17,8 @@ public class Task {
     private Long id;
     private String nome;
     private Boolean checked;
+    private String hour;
+    private TaskStatus taskStatus;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }
