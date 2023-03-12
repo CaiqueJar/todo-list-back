@@ -18,6 +18,11 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskModel getTaskById(Long id) {
-        return null;
+        return tr.findById(id).get();
+    }
+
+    @Override
+    public void deleteTask(Long id) {
+        tr.deleteById(id);
     }
 }
