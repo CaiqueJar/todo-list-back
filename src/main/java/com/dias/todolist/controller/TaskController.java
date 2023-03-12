@@ -35,6 +35,13 @@ public class TaskController {
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody TaskModel taskModel) {
+        TaskModel updateTask = ts.updateTask(id, taskModel);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteById(@PathVariable("id") Long id) {
         ts.deleteTask(id);
