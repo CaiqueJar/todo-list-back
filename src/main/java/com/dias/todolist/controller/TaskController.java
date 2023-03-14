@@ -50,4 +50,11 @@ public class TaskController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping("/status/{id}")
+    public ResponseEntity checkStatus(@PathVariable("id") Long id) {
+       TaskModel checkedTask = ts.checkTaskStatus(id);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+
+    }
+
 }

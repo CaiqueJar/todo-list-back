@@ -13,4 +13,6 @@ public interface TaskService {
     TaskModel updateTask(Long id, TaskModel taskModel);
 
     void deleteTask(Long id);
+
+    TaskModel checkTaskStatus(Long id);
 }

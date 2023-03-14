@@ -18,8 +18,13 @@ public class TaskModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String hour;
+    @Column(nullable = false)
+    private String date;
+    @Enumerated(EnumType.ORDINAL)
     private TaskStatusModel taskStatusModel;
     @CreationTimestamp
     private LocalDateTime created_at;
